@@ -7,6 +7,9 @@ async function query(queryObject) {
     user: process.env.POSTGRES_USER,
     database: process.env.POSTGRES_DB,
     password: process.env.POSTGRES_PASSWORD,
+    ssl: process.env.NODE_ENV === 'development' ? false : true,
+    // se trabalhando com banco local ssl não é suportado portante usar "false" ou simplesmente não declarar o parâmetro "ssl" ou use condição ternária verificando a condição da variável NODE_ENV
+    // NODE_ENV: variável de ambiente do node que pode ter os valores development ou production a dependenr do ambiente em que a aplicação esteja rodando.
   });
   console.log('Credenciais do Postgres:', {
     host: process.env.POSTGRES_HOST,
