@@ -47,3 +47,4 @@ export default async function status(request, response) {
   await dbClient.end();
 }
 }
+
